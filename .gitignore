@@ -1,0 +1,18 @@
+# Logs
+logs/
+*.log
+
+# Temporary files
+.DS_Store
+*.tmp
+
+# State files
+.conversion-state.json
+
+# Python cache
+__pycache__/
+*.pyc
+.uv/
+
+# Test output
+test-output/
