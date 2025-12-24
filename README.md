@@ -191,14 +191,17 @@ Detailed logs are saved to `logs/conversion-YYYYMMDD-HHMMSS.log` with:
 
 ## Resuming After Interruption
 
-If the script is interrupted (Ctrl+C, system sleep, etc.):
+If the script is interrupted (Ctrl+C, system sleep, etc.), you can resume from any DVD number:
 
-1. Note which DVD number was being processed
-2. Restart the script
-3. It will prompt for DVD 1
-4. You can skip already-converted DVDs by choosing 'N' when asked to continue
+1. Note which DVD number was being processed (e.g., completed DVD 10, need to resume from DVD 11)
+2. Edit `convert-dvd.sh` line 445: change `local start_dvd=1` to your starting number
+   ```bash
+   local start_dvd=11  # Resume from DVD 11
+   ```
+3. Run the script - it will start from your specified DVD number
+4. When finished or starting a new batch, change back to `start_dvd=1`
 
-Note: The script currently processes sequentially. Manual tracking of progress is needed if interrupted.
+The script will automatically show the correct range in the startup message (e.g., "DVDs 11-20").
 
 ## After Conversion
 

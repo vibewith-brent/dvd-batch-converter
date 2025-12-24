@@ -441,11 +441,14 @@ main() {
     mkdir -p "$MP4_DIR"
     log "Created output directories"
 
+    # Set starting DVD number
+    local start_dvd=11
+
     echo ""
     echo "╔══════════════════════════════════════════════════════════════╗"
     echo "║              DVD Batch Converter (Hybrid Mode)              ║"
     echo "║                                                              ║"
-    echo "║  This script will process 10 DVDs:                         ║"
+    echo "║  This script will process DVDs $start_dvd-$MAX_DVDS:                      ║"
     echo "║    1. Copy original DVD files (VIDEO_TS folders)           ║"
     echo "║    2. Convert to MP4 format (H.264 + AAC)                  ║"
     echo "║                                                              ║"
@@ -459,7 +462,6 @@ main() {
     read -r
 
     # Process DVDs sequentially
-    local start_dvd=1
     local success_count=0
 
     for dvd_num in $(seq "$start_dvd" "$MAX_DVDS"); do
